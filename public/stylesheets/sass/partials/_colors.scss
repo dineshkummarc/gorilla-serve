@@ -1,0 +1,26 @@
+// Text
+$body: #444;
+
+// Border color
+$border: lighten($body,40%);
+
+// Highlight
+$highlight: #FFFFCC;
+
+// Blue!
+$blue: #365177;
+
+// lightblue
+$lightBlue: #76bbe2;
+
+// Red, muted
+$red: desaturate(red,35%);
+
+// Green, muted
+$green: desaturate(green,35%);
+
+// Muted text
+$muted: lighten($body,20%);
+
+// Muted background
+$bg-muted: lighten($body,70%);

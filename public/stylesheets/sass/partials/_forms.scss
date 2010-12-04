@@ -1,0 +1,154 @@
+// Form elements
+fieldset{
+  @include pie-clearfix;
+  @include box-shadow(rgba(#FFF,0.9),1px,1px,0);
+  // Set context for big form notes
+  position:relative;
+  margin-bottom: 1.5em;
+  background:rgba(#000,0.05);
+  border:1px solid rgba(#000,0.15);
+  padding:1.5em;
+  &.first{
+    border-top:none;
+    padding-top:0;
+  }
+  &.submit{
+    padding-left:160px;
+  }
+
+  legend{
+    font-size:16px;
+    font-weight: bold;
+    color:lighten($body,20%);
+  }
+  ol{
+    @include clearfix;
+    margin-right:0;
+    //margin-bottom:2em;
+  }
+  ol li{
+    @include pie-clearfix;
+    // Reset pretty bullets
+    background:none!important;
+    padding:0!important;
+    line-height:1.5em;
+    margin-bottom: 0.75em;
+    float:left;
+    width:100%;
+    br{
+      display: none;
+    }
+  }
+}
+
+// Form submits
+.submit{
+  margin-right:0;
+  text-align:right;
+}
+
+// Labels
+label, .cr h3 {
+  @include float;
+  color:$body;
+  line-height:3em;
+  font-weight:bold;
+  width:30%;
+  margin-right: 10px;
+  font-size:1.0833em;
+  text-transform:uppercase;
+}
+li.cr label{
+  font-weight:normal;
+  line-height:2.1em;
+  width:auto;
+  clear:none;
+  float:left;
+  margin:0 0.5em 0.35em 0;
+  // Reset default label styles
+  text-transform:none;
+  font-size:1em;
+  // Vertically align the checkboxes or radiobuttons
+  input{
+    height:1.5em;
+    margin-right:0.5em;
+    display:inline-block;
+    vertical-align: middle;
+  }
+}
+
+// Required fields marked with red star
+abbr[title="required"]{
+  font-size:120%;
+  color:$red;
+  line-height:1em;
+}
+
+// Form inputs
+select, input, textarea{
+  @include border-radius(0.2em);
+  @include opacity(0.9);
+  border:1px solid $border, 15%;
+  float:left;
+  font-family:$sans-serif;
+  font-size:1em;
+  color:lighten($body,10%);
+  margin-right:1em;
+  padding: 0.5em;
+  &:focus{
+    @include opacity(1);    
+    color:darken($body,10%);
+  }
+}
+
+// Individual input types
+input{
+  width:60%;
+}
+input[type="radio"], input[type="checkbox"]{
+  width:auto;
+}
+
+textarea{
+  height: 170px;
+  width:240px;
+}
+
+// Form feedback
+
+.note{
+  color:rgba(0,0,0,0.5);
+  background:url(/images/layout/icons/icon-formnote.png) no-repeat 0 center;
+  clear:left;
+  padding-left:22px;
+}
+
+.bignote{
+  //background:url(/images/layout/formnote-arrow.png) no-repeat 0 center;
+  //background:#ffffcc;
+  border-top:1px solid $border;
+  margin-top:1.5em;
+  position:relative;
+  div{
+    padding:1.5em 0;   
+    color:$muted;
+    p{
+      font-style:italic;
+      margin:0;
+    }
+  }
+}
+
+label.error{
+  background:url(/images/form-error.gif) no-repeat 0 6px;
+  color: $muted;
+  display: block;
+  float: left;
+  font-size: 90%;
+  font-style:italic;
+  font-weight:normal;
+  margin-left: 160px;
+  padding: 5px 0 0 24px;
+  text-transform:none;
+  width:300px;
+}

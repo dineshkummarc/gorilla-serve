@@ -1,0 +1,594 @@
+@charset "UTF-8";
+/*
+  Title: Gorilla project template
+  Author: Jelle Desramaults
+  For: Gorilla webdesign (http://gorilla-webdesign.be)
+  Date: December 2010
+  
+  1. CONFIGURATION
+  2. COMMON
+     2.1 General page layout
+     2.2 Header
+     2.3 Footer
+     2.4 Content
+  3. PAGES
+    3.1 Homepage
+    
+  */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: "" "";
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+a img {
+  border: none;
+}
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  display: block;
+}
+
+a.button, button {
+  font-size: 1.25em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 2.5em;
+  height: 2.5em;
+  padding: 0 2.5em;
+  -moz-border-radius: 1.25em;
+  -webkit-border-radius: 1.25em;
+  -o-border-radius: 1.25em;
+  -ms-border-radius: 1.25em;
+  -khtml-border-radius: 1.25em;
+  border-radius: 1.25em;
+  border: 1px solid black;
+  vertical-align: middle;
+  background: black;
+  color: #d9d9d9;
+  text-decoration: none;
+}
+a.button:hover, button:hover {
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.wf-loading h1, .wf-loading h2, .wf-loading h3 {
+  visibility: hidden;
+}
+
+body {
+  text-shadow: white 1px 1px 0;
+  color: #444444;
+  font-family: Arial, sans-serif;
+  font-size: 75%;
+  line-height: 1.5;
+}
+
+h4, p, ul, ol, blockquote, dl, hr, table {
+  margin: 0 1.5em 1.5em 0;
+}
+
+h1, h2, h3 {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  color: #000;
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0 0.75em 0.75em 0;
+}
+
+h2 {
+  color: #000;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0 1em 1em 0;
+}
+
+h3 {
+  color: #000;
+  font-size: 1.1667em;
+  font-weight: bold;
+  margin: 0 1.286em 1.286em 0;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+sup {
+  font-size: 80%;
+  vertical-align: top;
+}
+
+hr {
+  color: #aaaaaa;
+  background: #aaaaaa;
+  border: none;
+  height: 1px;
+  margin-right: 0;
+}
+
+#content ul, #content ol {
+  margin-left: 0;
+}
+#content ul li, #content ol li {
+  padding-left: 14px;
+  background: url('/images/layout/bullet.png?1288169916') no-repeat 5px 7px;
+  list-style-type: none;
+}
+
+a {
+  color: #4083a9;
+  text-decoration: none;
+}
+a:hover {
+  color: #1e2d42;
+}
+
+dl {
+  overflow: hidden;
+  *zoom: 1;
+}
+dl dt {
+  clear: left;
+  float: left;
+  margin-right: 1em;
+  width: 10em;
+  font-weight: bold;
+}
+dl dd {
+  float: left;
+  width: 40em;
+}
+
+.intro {
+  font-size: 1.333em;
+  color: #515151;
+}
+
+.alt {
+  font-family: Georgia, baskerville, serif;
+  font-style: italic;
+  color: #373737;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.muted {
+  color: #919191;
+}
+
+table {
+  width: 100%;
+}
+table thead th {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+table thead th.action {
+  text-align: center;
+  width: 180px;
+}
+
+th, td {
+  border-bottom: 1px solid #aaaaaa;
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+td.action {
+  vertical-align: middle;
+  text-align: center;
+}
+
+td dl {
+  margin: 0 !important;
+}
+td dl dd {
+  width: auto;
+}
+
+th, th a {
+  background: #444444;
+  color: #FFF;
+  font-weight: bold;
+}
+
+fieldset {
+  *zoom: 1;
+  -moz-box-shadow: rgba(255, 255, 255, 0.9) 1px 1px 0 0;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.9) 1px 1px 0 0;
+  -o-box-shadow: rgba(255, 255, 255, 0.9) 1px 1px 0 0;
+  box-shadow: rgba(255, 255, 255, 0.9) 1px 1px 0 0;
+  position: relative;
+  margin-bottom: 1.5em;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 1.5em;
+}
+fieldset:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+fieldset.first {
+  border-top: none;
+  padding-top: 0;
+}
+fieldset.submit {
+  padding-left: 160px;
+}
+fieldset legend {
+  font-size: 16px;
+  font-weight: bold;
+  color: #777777;
+}
+fieldset ol {
+  overflow: hidden;
+  *zoom: 1;
+  margin-right: 0;
+}
+fieldset ol li {
+  *zoom: 1;
+  background: none!important;
+  padding: 0!important;
+  line-height: 1.5em;
+  margin-bottom: 0.75em;
+  float: left;
+  width: 100%;
+}
+fieldset ol li:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+fieldset ol li br {
+  display: none;
+}
+
+.submit {
+  margin-right: 0;
+  text-align: right;
+}
+
+label, .cr h3 {
+  display: inline;
+  float: left;
+  color: #444444;
+  line-height: 3em;
+  font-weight: bold;
+  width: 30%;
+  margin-right: 10px;
+  font-size: 1.0833em;
+  text-transform: uppercase;
+}
+
+li.cr label {
+  font-weight: normal;
+  line-height: 2.1em;
+  width: auto;
+  clear: none;
+  float: left;
+  margin: 0 0.5em 0.35em 0;
+  text-transform: none;
+  font-size: 1em;
+}
+li.cr label input {
+  height: 1.5em;
+  margin-right: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+abbr[title="required"] {
+  font-size: 120%;
+  color: #d22d2d;
+  line-height: 1em;
+}
+
+select, input, textarea {
+  -moz-border-radius: 0.2em;
+  -webkit-border-radius: 0.2em;
+  -o-border-radius: 0.2em;
+  -ms-border-radius: 0.2em;
+  -khtml-border-radius: 0.2em;
+  border-radius: 0.2em;
+  opacity: 0.9;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  border: 1px solid #aaaaaa, 15%;
+  float: left;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  color: #5e5e5e;
+  margin-right: 1em;
+  padding: 0.5em;
+}
+select:focus, input:focus, textarea:focus {
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  color: #2b2b2b;
+}
+
+input {
+  width: 60%;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: auto;
+}
+
+textarea {
+  height: 170px;
+  width: 240px;
+}
+
+.note {
+  color: rgba(0, 0, 0, 0.5);
+  background: url(/images/layout/icons/icon-formnote.png) no-repeat 0 center;
+  clear: left;
+  padding-left: 22px;
+}
+
+.bignote {
+  border-top: 1px solid #aaaaaa;
+  margin-top: 1.5em;
+  position: relative;
+}
+.bignote div {
+  padding: 1.5em 0;
+  color: #777777;
+}
+.bignote div p {
+  font-style: italic;
+  margin: 0;
+}
+
+label.error {
+  background: url(/images/form-error.gif) no-repeat 0 6px;
+  color: #777777;
+  display: block;
+  float: left;
+  font-size: 90%;
+  font-style: italic;
+  font-weight: normal;
+  margin-left: 160px;
+  padding: 5px 0 0 24px;
+  text-transform: none;
+  width: 300px;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -4.5em;
+}
+#root #root-footer {
+  height: 4.5em;
+}
+
+#bottom {
+  clear: both;
+  position: relative;
+  height: 4.5em;
+}
+
+body {
+  background: #ebebeb;
+}
+
+.container {
+  min-width: 960px;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+  overflow: visible;
+  *zoom: 1;
+  position: relative;
+}
+.container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+#wrap {
+  overflow: hidden;
+  *zoom: 1;
+  padding-top: 3em;
+  padding-bottom: 1em;
+}
+
+#content {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 74.055%;
+  margin-right: 3.75%;
+  overflow: visible!important;
+  *zoom: 1;
+  position: relative;
+}
+#content:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+sidebar {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 22.185%;
+  margin-right: 0;
+  overflow: visible;
+  *zoom: 1;
+  position: relative;
+}
+sidebar:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+header#topbar {
+  border-bottom: 1px solid #aaaaaa;
+  margin-bottom: 3em;
+}
+header#topbar .container {
+  position: relative;
+  padding-bottom: 2em;
+}
+header#topbar h1#logo {
+  margin: 0;
+  font-size: 3em;
+  float: left;
+  line-height: 1em;
+  padding: 0.5em 0;
+}
+header#topbar h1#logo a {
+  display: block;
+  font-weight: 700;
+  float: left;
+  height: 80px;
+  width: 150px;
+}
+header#topbar nav {
+  position: absolute;
+  right: 0;
+  top: 3em;
+}
+header#topbar nav ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  overflow: hidden;
+  *zoom: 1;
+  margin: 0;
+  float: left;
+}
+header#topbar nav ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+header#topbar nav ul li:first-child, header#topbar nav ul li.first {
+  padding-left: 0;
+}
+header#topbar nav ul li:last-child, header#topbar nav ul li.last {
+  padding-right: 0;
+}
+header#topbar nav ul li {
+  float: left;
+  border-left: 1px solid #aaaaaa;
+}
+header#topbar nav ul li:first-child {
+  border: none;
+}
+header#topbar nav ul a {
+  float: left;
+  font-size: 1.5em;
+  line-height: 2em;
+  padding: 0 1em;
+}
+header#topbar nav ul li.current a {
+  font-weight: bold;
+}
+
+#bottom {
+  background: #777777;
+  height: 4.5em;
+}
+#bottom p {
+  padding: 1.5em 0;
+  margin: 0;
+}
