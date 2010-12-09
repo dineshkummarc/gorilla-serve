@@ -75,7 +75,7 @@ hr{
 
 // Links
 a{
-  @include link-colors(#4083a9, darken($blue,15%));
+  @include link-colors($link-color, darken($link-color,15%));
   text-decoration:none;
 }
 

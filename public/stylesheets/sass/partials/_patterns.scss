@@ -46,7 +46,7 @@ a.button, button{
   @include pie-clearfix;
 }
 
-// Define muted mixing
+// Define muted mixin
 @mixin muted{
   color:rgba(0,0,0,0.5);
 }
