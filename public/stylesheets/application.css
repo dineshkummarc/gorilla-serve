@@ -119,7 +119,7 @@ h4, p, ul, ol, blockquote, dl, hr, table {
 }
 
 h1, h2, h3 {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 h1 {
@@ -169,16 +169,28 @@ hr {
 }
 
 #content ul, #content ol {
-  margin-left: 0;
+  padding-left: 1.5em;
 }
-#content ul li, #content ol li {
-  padding-left: 14px;
-  background: url('/images/layout/bullet.png?1288169916') no-repeat 5px 7px;
-  list-style-type: none;
+
+#content ul {
+  list-style-type: disc;
+}
+
+#content ol {
+  list-style-type: decimal;
+}
+
+.ie6 #content ul, .ie7 #content ul, .ie8 #content ul {
+  padding-left: 0;
+  margin-left: 1.5em;
+}
+.ie6 #content ol, .ie7 #content ol, .ie8 #content ol {
+  padding-left: 0;
+  margin-left: 2em;
 }
 
 a {
-  color: #4083a9;
+  color: #365177;
   text-decoration: none;
 }
 a:hover {
@@ -234,24 +246,6 @@ th, td {
   border-bottom: 1px solid #aaaaaa;
   padding: 0.5em;
   vertical-align: top;
-}
-
-td.action {
-  vertical-align: middle;
-  text-align: center;
-}
-
-td dl {
-  margin: 0 !important;
-}
-td dl dd {
-  width: auto;
-}
-
-th, th a {
-  background: #444444;
-  color: #FFF;
-  font-weight: bold;
 }
 
 fieldset {
