@@ -1,59 +1,82 @@
-body.bp {
-  line-height: 1.5;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: black;
-  background: none;
-  font-size: 10pt;
-}
-body.bp .container {
-  background: none;
-}
-body.bp hr {
-  background: #cccccc;
-  color: #cccccc;
-  width: 100%;
-  height: 2px;
-  margin: 2em 0;
-  padding: 0;
-  border: none;
-}
-body.bp hr.space {
-  background: white;
-  color: white;
-}
-body.bp h1, body.bp h2, body.bp h3, body.bp h4, body.bp h5, body.bp h6 {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-body.bp code {
-  font-size: 0.9em;
-  font-family: "andale mono", "lucida console", monospace;
-}
-body.bp a img {
-  border: none;
-}
-body.bp a:link, body.bp a:visited {
-  background: transparent;
-  font-weight: 700;
-  text-decoration: underline;
-}
-body.bp p img.top {
-  margin-top: 0;
-}
-body.bp blockquote {
-  margin: 1.5em;
-  padding: 1em;
-  font-style: italic;
-  font-size: 0.9em;
-}
-body.bp .small {
-  font-size: 0.9em;
-}
-body.bp .large {
-  font-size: 1.1em;
-}
-body.bp .quiet {
-  color: #999999;
-}
-body.bp .hide {
-  display: none;
-}
+/*
+Syntax error: File to import not found or unreadable: partial/defaults.
+              Load paths:
+                /Users/jelledesramaults/projects/gorilla-serve/src
+                /Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets
+                /Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets
+                /Library/Ruby/Gems/1.8/gems/compass-susy-plugin-0.9/lib/../sass
+                
+        on line 9 of /Users/jelledesramaults/projects/gorilla-serve/src/print.scss
+
+Backtrace:
+/Users/jelledesramaults/projects/gorilla-serve/src/print.scss:9
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/import_node.rb:64:in `import'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/import_node.rb:25:in `imported_file'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:148:in `visit_import'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:27:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:39:in `with_environment'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:26:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:47:in `visit_root'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/engine.rb:291:in `_render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/engine.rb:239:in `render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/util.rb:298:in `silence_sass_warnings'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.0.alpha.4/lib/sass/../sass/engine.rb:239:in `render'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:130:in `compile'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:116:in `timed'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:129:in `compile'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/logger.rb:45:in `red'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:128:in `compile'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:108:in `compile_if_required'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:95:in `run'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:93:in `each'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:93:in `run'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:116:in `timed'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/compiler.rb:92:in `run'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/commands/watch_project.rb:142:in `recompile'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `to_proc'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:73:in `call'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:73:in `run_callback'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:55:in `callback_action'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/path.rb:35:in `update'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:39:in `modified'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:37:in `each'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:37:in `modified'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/state/directory.rb:18:in `refresh'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:15:in `add_handler'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:14:in `each'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:14:in `add_handler'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/rubycocoa/fsevents.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/rubycocoa/fsevents.rb:107:in `initialize'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:27:in `CFRunLoopRun'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/backends/fsevents.rb:27:in `run'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm/monitor.rb:26:in `run'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.7/lib/fssm.rb:20:in `monitor'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/commands/watch_project.rb:86:in `perform'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/commands/base.rb:18:in `execute'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/commands/project_base.rb:19:in `execute'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/bin/compass:25
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/bin/compass:39:in `call'
+/Library/Ruby/Gems/1.8/gems/compass-0.11.1/bin/compass:39
+/usr/bin/compass:19:in `load'
+/usr/bin/compass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: partial/defaults.\A               Load paths:\A                 /Users/jelledesramaults/projects/gorilla-serve/src\A                 /Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets\A                 /Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets\A                 /Library/Ruby/Gems/1.8/gems/compass-susy-plugin-0.9/lib/../sass\A                 \A         on line 9 of /Users/jelledesramaults/projects/gorilla-serve/src/print.scss"; }

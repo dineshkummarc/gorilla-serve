@@ -367,3 +367,15 @@
         %textarea#f5{:cols => "30", :rows => "5"} Textarea text
   %p.submit
     %button#f6{:type => "submit"} Button text
+    
+- content_for :sidebar do      
+  %h3 Sidebar content
+    
+- content_for :pageheader do
+  #breadcrumb
+    %p
+      %strong U bevindt zich hier:
+      %a{:href => "#"} Home
+      \&gt;
+      %a{:href => "/nl/producten/"} Sub-pagina
+      \&gt; Diepere pagina

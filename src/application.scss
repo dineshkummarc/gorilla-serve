@@ -1,0 +1,131 @@
+/*
+  Title: Gorilla project template
+  Author: Jelle Desramaults
+  For: Gorilla webdesign (http://gorilla-webdesign.be)
+  Date: February 2011
+  
+  1. CONFIGURATION
+  2. COMMON
+      2.1 General page layout
+      2.2 Header
+  3. PAGES
+      3.1 
+  4. IE STYLes
+  5. MOBILE STYLES
+*/
+
+// =============================================================================
+// 1. CONFIGURATION
+// =============================================================================
+
+@import "compass/reset";
+@import "partials/defaults";
+
+// =============================================================================
+// 2. COMMON
+// =============================================================================
+
+// 2.1 General layout stuff
+//------------------------------------------------------------------------------
+body{
+  @include padding-trailer(2);
+}
+h1+p{
+  @include adjust-font-size-to(16px,2);
+  @include trailer(2,16px);
+  // @TODO This one breaks vertical rythm
+  line-height:1.75em;
+}
+
+// 2.1 Top bar
+//------------------------------------------------------------------------------
+
+#nav-extra{
+  position:absolute;
+  right:0;
+  top:0;
+  ul{
+    @include horizontal-list;
+  }
+  a{
+    @include adjust-leading-to(2);
+  }
+}
+
+// 2.2 Header
+//------------------------------------------------------------------------------
+
+header#topbar{
+  position:relative;
+  padding-top:$base-rhythm-unit;
+}
+
+#logo{
+  @include trailer;
+  a{
+    color:$orange;
+  }
+  a:hover{
+    border:none;
+  }
+}
+
+#nav-main{
+  @include pie-clearfix;
+  @include trailer(2);
+  background:$orange;
+  ul{
+    @include horizontal-list;
+    margin:0;
+  }
+  a{
+    @include adjust-font-size-to(14px,3);
+    float:left;
+    display:block;
+    color: #FFF;
+    font-weight:bold;
+    text-transform:uppercase;
+    padding:0 10px;
+  }
+  a:hover, li.current a, li.parent_of_current a{
+    border-bottom:none;
+    color:#FFF;
+  }
+}
+
+// 2.3 Sidebar
+//------------------------------------------------------------------------------
+
+// 2.4 Content
+//------------------------------------------------------------------------------
+#breadcrumb p{
+  @include trailing-border;
+  border-color:$border;
+  margin-right:0;
+}
+
+// =============================================================================
+// 3. PAGES
+// =============================================================================
+
+// 3.1 Homepage
+//------------------------------------------------------------------------------
+// Insert styles for homepage
+.homepage{
+  font-size:300000px;
+}
+
+// 4. MEDIA QUERIES
+// =============================================================================
+@import "partials/mobile";
+
+@media only screen and (min-width : 481px){
+  @import "partials/screen";
+}
+.ie6, .ie7, .ie8{
+  @import "partials/screen";
+}
+
+// 5. IE STYLES
+// =============================================================================
+@import "partials/ie";

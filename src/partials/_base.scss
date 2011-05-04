@@ -1,0 +1,53 @@
+// These styles will be available in defaults, screen, print and IE
+// Font Sizes
+//------------------------------------------------------------------------------
+
+$base-font-size: 12px;
+$base-line-height: 18px;
+
+// Grid
+//------------------------------------------------------------------------------
+
+$total-cols: 8;
+$col-width: 8.83em;
+$gutter-width: 1.333em;
+$side-gutter-width: $gutter-width;
+
+// Don't move this @import above the GRID and FONT-SIZE variables.
+@import "susy/susy";
+
+// Colors
+//------------------------------------------------------------------------------
+
+// Text
+$body: #3F3F3F;
+
+// Colors
+$orange: #F6921E;
+$dark: #191919;
+
+// Backgrounds
+$grey: #f3f3f3;
+
+// Border color
+$border: #dadedf;
+
+// Fonts
+//------------------------------------------------------------------------------
+
+@mixin sans-family {
+  font-family: sans-serif;
+}
+
+@mixin serif-family {
+  font-family: Cambria, Georgia, serif;
+}
+
+@mixin monospace-family {
+  font-family: "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, Courier, monospace, sans-serif;
+}
+
+// OTHER MIXINS 
+//------------------------------------------------------------------------------
+// Mixins set here will be available in defaults, screen, print and IE
+// Or anywhere you import either base.sass or defaults.sass

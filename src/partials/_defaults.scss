@@ -1,0 +1,391 @@
+//** DEFAULT STYLES **//
+
+// Based heavily on the work of:
+// Andy Clarke: http://forabeautifulweb.com/
+// Paul Irish & Divya Manian: http://html5boilerplate.com/
+// And many others, less directly...
+
+// Imports --------------------------------------------------------------
+
+@import "base";
+@include establish-baseline;
+
+/* Typography -------------------------------------------------------------- */
+/* The following classes are for use with @extend. */
+
+.serif{
+  @include serif-family;
+}
+.sans{
+  @include sans-family;
+}
+.mono{
+  @include monospace-family; }
+
+.caps{
+  letter-spacing: 0.1em; }
+
+.allcaps{
+  @extend .caps;
+  text-transform: uppercase; }
+
+.smallcaps{
+  @extend .caps;
+  font-variant: small-caps; }
+
+/* Body -------------------------------------------------------------- */
+
+body{
+  @extend .sans;
+  color: $body;
+}
+
+/* Selected Text -------------------------------------------------------------- */
+/* -moz- must be declared separately */
+
+::-moz-selection{
+  background: $orange;
+  color:#FFF;
+  text-shadow: none;
+}
+
+::selection{
+  background: $orange;
+  color:#FFF;
+  text-shadow: none;
+}
+
+/* Links -------------------------------------------------------------- */
+
+a{
+  &:link, &:visited{
+    color: $orange;
+    text-decoration: none; 
+  }
+  &:link, &:visited, &:hover, &:active{
+    outline: none;
+  }
+  &:focus, &:hover, &:active{
+    color: $dark;
+    text-decoration: none; 
+    border-bottom:1px solid $orange;
+  }
+  &:focus{
+    outline: thin dotted;
+  }
+}
+
+a.button, button{
+  border:none;
+}
+
+/* Headings -------------------------------------------------------------- */
+
+h2, h3, h4, h5, h6{
+  @include trailer;
+  font-weight:normal;
+  color:$dark;
+}
+
+h1{
+  @include adjust-font-size-to(36px);
+  @include trailer(1,36px);
+  color:$orange;
+}
+
+h2{
+  @include adjust-font-size-to(24px); 
+  @include trailer(1,24px);
+  text-transform:uppercase;
+}
+
+h3{
+  @include adjust-font-size-to(24px); 
+}
+
+h4{
+  @extend .smallcaps;
+  text-transform: lowercase;
+}
+
+h5, h6{
+  font-style: italic; }
+
+/* Inline -------------------------------------------------------------- */
+
+cite, em, dfn, address, i{
+  font-style: italic; }
+
+strong, dfn, b{
+  font-weight: bold; }
+
+sup, sub{
+  font-size: smaller;
+  line-height: 0; }
+
+sup{
+  vertical-align: super; }
+
+sub{
+  vertical-align: sub; }
+
+abbr, acronym{
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+ins{
+  text-decoration: underline; }
+
+del{
+  text-decoration: line-through; }
+
+mark{
+  background: #ffff99;
+  background-color: rgba(yellow, 0.5);
+  text-shadow: none; }
+
+small{
+  @include adjust-font-size-to(12px); }
+
+q{
+  font-style: italic;
+  em{
+    font-style: normal; } }
+
+pre, code, tt{
+  @extend .mono; }
+
+/* Block -------------------------------------------------------------- */
+
+p{
+  @include trailer;
+  margin-right: $base-rhythm-unit;
+}
+
+pre{
+  margin: $base-rhythm-unit;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word; }
+
+blockquote{
+  @include trailer;
+  @extend .box;
+  font-style:italic;
+  .quote{
+    background:transparent url(/images/layout/quote-open.png) no-repeat 0 5px;
+    padding-top:0.8em;
+    text-indent:2.8em;
+  }
+  cite{
+    @extend .allcaps;
+    font-size:11px;
+  }
+}
+
+/* Figurs -------------------------------------------------------------- */
+figure img{
+  display:block;
+  @include trailer;
+}
+
+/* Replaced -------------------------------------------------------------- */
+
+img{
+  vertical-align: text-bottom;
+  max-width: 100%;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* Lists -------------------------------------------------------------- */
+
+ol, ul, dl{
+  @include trailer;
+  margin-left: $base-rhythm-unit; }
+
+ol{
+  list-style: decimal; }
+
+ul{
+  list-style: disc;
+  li &{
+    list-style-type: circle; } }
+
+dt{
+  @include leader;
+  font-style: italic; }
+
+dd{
+  padding-left: $base-rhythm-unit; }
+
+/* Tables -------------------------------------------------------------- */
+/* tables still need 'cellspacing="0"' in the markup */
+
+table{
+  @include trailer;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table, td, th{
+  vertical-align: top;
+  border:1px solid $border;
+}
+
+th, thead th{
+  font-weight: bold;
+}
+
+th, td, caption{
+  padding: $base-rhythm-unit * 0.5;
+  text-align: left;
+  font-weight: normal;
+}
+
+th{
+  @include trailing-border(1px, 0.5);
+}
+
+th{
+  background:$grey;
+}
+
+tfoot{
+  @include adjust-font-size-to(14px);
+}
+
+caption{
+  @extend .allcaps;
+}
+
+/* Forms -------------------------------------------------------------- */
+
+fieldset{
+  @extend .box;
+  @include trailer;
+  @include rhythm-borders(1px);
+  ul{
+    @include no-bullets;
+    margin:0;
+  }
+  li{
+    @include pie-clearfix;
+  }
+}
+
+legend{
+  @include adjust-font-size-to(18px);
+  font-weight: bold;
+}
+
+input[type="radio"], input[type="checkbox"]{
+  vertical-align: baseline;
+}
+
+label, input[type=button], input[type=submit], button{
+  cursor: pointer;
+}
+
+// Label & asterix
+label{
+  font-weight: bold;
+}
+label abbr, abbr[title="required"]{
+  font-size: 130%;
+  color:$orange;
+  border:none;
+}
+label abbr{
+  margin-left: 5px;
+}
+
+// box-sizing helps us control the width of inputs
+// which are otherwise very hard to manage in the grid.
+.textinput{
+  @include sans-family;
+  @include rhythm-borders(1px, 0.5, 12px);
+  @include trailer(0.5);
+  @include box-sizing(border-box);
+  font-size:12px;
+  margin-top: 0;
+  border-color: $border;
+  color:lighten($body,10%);
+}
+
+select{
+  @extend .textinput;  
+}
+
+textarea{
+  @extend .textinput;
+  height: $base-line-height / 14px * 6.5em;
+  vertical-align: text-bottom;
+}
+
+input{
+  &[type=text], 
+  &[type=password], 
+  &[type=email], 
+  &[type=url], 
+  &[type=tel],
+  &[type=date],
+  &[type=datetime],
+  &[type=datetime-local],
+  &[type=month],
+  &[type=week],
+  &[type=time],
+  &[type=number],
+  &[type=range],
+  &[type=search],
+  &[type=color]{
+    @extend .textinput;
+    }
+  // reset webkit search styles
+  &[type=search]{
+    -webkit-appearance: none;
+    &::-webkit-search-decoration{
+      display: none;
+    } 
+  }
+}
+
+button{
+  background:$orange;
+  color:#FFF;
+  font-weight:bold;
+  text-transform:uppercase;
+  // @TODO vertical rythim alert
+  padding:$base-rhythm-unit/2;
+  width: auto;
+  overflow: visible;
+}
+
+// Form feedback
+.form-info{
+  color:lighten($body,20%);
+  text-align:right;
+  margin-right:0;
+}
+label.error{
+  background:url(/images/layout/form-error.png) no-repeat 0 center;
+  padding-left:20px;
+  color:$orange;
+  width:auto;
+}
+
+// Define box mixin
+// Transforms a div into a colored box
+// Use the mixin, or add a class .box to your markup
+.box{
+  @include pie-clearfix;
+  @include trailer;
+  @include rhythm-borders(1px, 0.5, 14px);
+  border-color:$border;
+  background: $grey;
+  padding:$base-rhythm-unit;
+}
+p.read-more{
+  float: right;
+}

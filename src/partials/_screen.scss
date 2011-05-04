@@ -1,0 +1,26 @@
+// Desktop screens
+//------------------------------------------------------------------------------
+
+// Grid layout 
+//------------------------------------------------------------------------------
+
+.container{
+  @include container;
+  @include show-grid("/images/grid.png");
+  *{
+    opacity:0.8;
+  }
+}
+
+// Basic elements
+header#topbar h1{
+  @include full;
+}
+sidebar{
+  @include columns(2);
+  @include alpha;
+}
+#content{
+  @include columns(6);
+  @include omega;
+}

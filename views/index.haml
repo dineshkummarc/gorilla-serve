@@ -8,3 +8,13 @@
 
 - content_for :sidebar do      
   %h3 Sidebar content
+  
+- content_for :pageheader do
+  #breadcrumb
+    %p
+      %strong U bevindt zich hier:
+      %a{:href => "#"} Home
+      \&gt;
+      %a{:href => "/nl/producten/"} Sub-pagina
+      \&gt; Diepere pagina
+

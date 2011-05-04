@@ -14,35 +14,42 @@
     %script{:src  => "/javascripts/modernizr-1.5.min.js"}
 
   %body{:id=>@body_id, :class=>@layout}
-    #root
-      %header#topbar
-        .container                    
-          %h1#logo
-            %a{:href=>"/"}
-              Gorilla template
-          %nav
-            %ul
-              %li.first.current
-                %a{:href=>"/"} Link 1
-              %li
-                %a{:href=>"#"} Link 2
-              %li
-                %a{:href=>"#"} Link 3
-              %li
-                %a{:href=>"#"} Link 4
-      #content-wrap.container
-        #content
-          = yield :pageheader
-          = yield
-        %sidebar
-          = yield :sidebar
-      #root-footer
-
-  %footer#bottom
     .container
-      #adres
-        %p
-          Footer content
+      %header#topbar
+        %h1#logo
+          %a{:href=>"/"}
+            Gorilla template
+        %nav#nav-main
+          %ul
+            %li.first.current
+              %a{:href=>"/"} Link 1
+            %li
+              %a{:href=>"#"} Link 2
+            %li
+              %a{:href=>"#"} Link 3
+            %li
+              %a{:href=>"#"} Link 4
+        %nav#nav-extra
+          %ul
+            %li.first.current
+              %a{:href=>"/"} Link 1
+            %li
+              %a{:href=>"#"} Link 2
+            %li
+              %a{:href=>"#"} Link 3
+            %li
+              %a{:href=>"#"} Link 4
+        #content-wrap
+          #content
+            = yield :pageheader
+            = yield
+          %sidebar
+            = yield :sidebar
+
+        %footer#bottom
+          #adres
+            %p
+              Footer content
 
   // frontend stuf
   %script{:src  => "/javascripts/frontend.js"}

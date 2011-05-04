@@ -1,0 +1,18 @@
+// IE fix for fieldsets & legends
+.ie6, .ie7, .ie8{
+  fieldset{
+    position:relative;
+    padding-top:2em;
+    margin-bottom:2.5em;
+  }
+  legend{
+    position:absolute; 
+    top:-0.5em;
+  }
+}
+// Legend is offset to the right too much in IE7
+.ie7{
+  legend{
+    left:0.5em;
+  }
+}
