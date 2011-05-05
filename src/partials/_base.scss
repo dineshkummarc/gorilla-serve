@@ -1,33 +1,33 @@
 // These styles will be available in defaults, screen, print and IE
-// Font Sizes
+
+// Define & generate susy stuff
 //------------------------------------------------------------------------------
 
-$base-font-size: 12px;
-$base-line-height: 18px;
+// Define font Sizes
+$base-font-size: 14px;
+$base-line-height: 21px;
 
-// Grid
-//------------------------------------------------------------------------------
-
+// Define grid values
 $total-cols: 8;
 $col-width: 8.83em;
 $gutter-width: 1.333em;
 $side-gutter-width: $gutter-width;
 
-// Don't move this @import above the GRID and FONT-SIZE variables.
-@import "susy/susy";
+// Generate susy stuff
+@import "susy/susy";// Don't move this @import above the GRID and FONT-SIZE variables.
 
 // Colors
 //------------------------------------------------------------------------------
 
 // Text
-$body: #3F3F3F;
+$body-text: #3F3F3F;
 
 // Colors
-$orange: #F6921E;
-$dark: #191919;
+$primary: #F6921E;
+$support: #191919;
 
 // Backgrounds
-$grey: #f3f3f3;
+$bg: #f3f3f3;
 
 // Border color
 $border: #dadedf;

@@ -7,11 +7,16 @@
   1. CONFIGURATION
   2. COMMON
       2.1 General page layout
-      2.2 Header
+      2.2 Topbar
+      2.3 Header
+      2.4 Sidebar
+      2.5 Content
+      2.6 Footer
   3. PAGES
-      3.1 
-  4. IE STYLes
-  5. MOBILE STYLES
+      3.1 Home
+      3.2 …
+  4. MEDIA QUERIES
+  5. IE STYLES
 */
 
 // =============================================================================
@@ -27,17 +32,8 @@
 
 // 2.1 General layout stuff
 //------------------------------------------------------------------------------
-body{
-  @include padding-trailer(2);
-}
-h1+p{
-  @include adjust-font-size-to(16px,2);
-  @include trailer(2,16px);
-  // @TODO This one breaks vertical rythm
-  line-height:1.75em;
-}
 
-// 2.1 Top bar
+// 2.2 Top bar
 //------------------------------------------------------------------------------
 
 #nav-extra{
@@ -46,9 +42,6 @@ h1+p{
   top:0;
   ul{
     @include horizontal-list;
-  }
-  a{
-    @include adjust-leading-to(2);
   }
 }
 
@@ -63,7 +56,7 @@ header#topbar{
 #logo{
   @include trailer;
   a{
-    color:$orange;
+    color:$primary;
   }
   a:hover{
     border:none;
@@ -73,7 +66,7 @@ header#topbar{
 #nav-main{
   @include pie-clearfix;
   @include trailer(2);
-  background:$orange;
+  background:$primary;
   ul{
     @include horizontal-list;
     margin:0;
@@ -112,13 +105,12 @@ header#topbar{
 //------------------------------------------------------------------------------
 // Insert styles for homepage
 .homepage{
-  font-size:300000px;
+  background:orange;
 }
 
 // 4. MEDIA QUERIES
 // =============================================================================
 @import "partials/mobile";
-
 @media only screen and (min-width : 481px){
   @import "partials/screen";
 }

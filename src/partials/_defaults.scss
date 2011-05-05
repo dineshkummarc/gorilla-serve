@@ -8,7 +8,14 @@
 // Imports --------------------------------------------------------------
 
 @import "base";
+
+// Establish baseline, generate handy mixins & variables -------------------
 @include establish-baseline;
+// AVAILABLE MIXINS
+// >> @include leader: margin-top van $base-line-height (padding-leader idem maar met padding)
+// >> @include trailer: margin-bottom van $base-line-height (padding-trailer idem maar met padding)
+// AVAILABLE VARIABLES
+// >> $base-rhythm-unit: line-height in em (vast getal)
 
 /* Typography -------------------------------------------------------------- */
 /* The following classes are for use with @extend. */
@@ -20,37 +27,31 @@
   @include sans-family;
 }
 .mono{
-  @include monospace-family; }
-
+  @include monospace-family;
+}
 .caps{
-  letter-spacing: 0.1em; }
-
-.allcaps{
-  @extend .caps;
-  text-transform: uppercase; }
-
-.smallcaps{
-  @extend .caps;
-  font-variant: small-caps; }
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 
 /* Body -------------------------------------------------------------- */
 
 body{
   @extend .sans;
-  color: $body;
+  color: $body-text;
 }
 
 /* Selected Text -------------------------------------------------------------- */
 /* -moz- must be declared separately */
 
 ::-moz-selection{
-  background: $orange;
+  background: $primary;
   color:#FFF;
   text-shadow: none;
 }
 
 ::selection{
-  background: $orange;
+  background: $primary;
   color:#FFF;
   text-shadow: none;
 }
@@ -59,16 +60,16 @@ body{
 
 a{
   &:link, &:visited{
-    color: $orange;
+    color: $primary;
     text-decoration: none; 
   }
   &:link, &:visited, &:hover, &:active{
     outline: none;
   }
   &:focus, &:hover, &:active{
-    color: $dark;
+    color: $support;
     text-decoration: none; 
-    border-bottom:1px solid $orange;
+    border-bottom:1px solid $primary;
   }
   &:focus{
     outline: thin dotted;
@@ -82,34 +83,39 @@ a.button, button{
 /* Headings -------------------------------------------------------------- */
 
 h2, h3, h4, h5, h6{
-  @include trailer;
   font-weight:normal;
-  color:$dark;
+  color:$support;
 }
 
 h1{
-  @include adjust-font-size-to(36px);
-  @include trailer(1,36px);
-  color:$orange;
+  font-size:1.714em; //24px
+  line-height:1.1em;
+  margin-bottom:1.3em;
+  color:$primary;
 }
 
 h2{
-  @include adjust-font-size-to(24px); 
-  @include trailer(1,24px);
-  text-transform:uppercase;
+  @extend .caps;
+  font-size:1.285em; //18px
+  line-height:1.3em;
+  margin-bottom:0.7em;
 }
 
 h3{
-  @include adjust-font-size-to(24px); 
+  @include trailer;
+  font-size:1em; //14px
+  font-weight:bold;
+  margin-bottom:0.7em;
 }
 
 h4{
-  @extend .smallcaps;
-  text-transform: lowercase;
+  @include trailer;
+  @extend .caps;
 }
 
 h5, h6{
-  font-style: italic; }
+  font-style: italic;
+}
 
 /* Inline -------------------------------------------------------------- */
 
@@ -145,7 +151,8 @@ mark{
   text-shadow: none; }
 
 small{
-  @include adjust-font-size-to(12px); }
+  font-size:0.857em;//12px
+}
 
 q{
   font-style: italic;
@@ -153,7 +160,8 @@ q{
     font-style: normal; } }
 
 pre, code, tt{
-  @extend .mono; }
+  @extend .mono;
+}
 
 /* Block -------------------------------------------------------------- */
 
@@ -167,11 +175,14 @@ pre{
   white-space: pre;
   white-space: pre-wrap;
   white-space: pre-line;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+}
 
 blockquote{
   @include trailer;
-  @extend .box;
+  background:$bg;
+  border:1px solid $border;
+  padding:$base-rhythm-unit;
   font-style:italic;
   .quote{
     background:transparent url(/images/layout/quote-open.png) no-repeat 0 5px;
@@ -180,8 +191,13 @@ blockquote{
   }
   cite{
     @extend .allcaps;
-    font-size:11px;
+    font-size:0.785em;//11px
   }
+}
+
+/* Hide HRs -------------------------------------------------------------- */
+hr{
+  display:none;
 }
 
 /* Figurs -------------------------------------------------------------- */
@@ -223,7 +239,7 @@ dd{
 /* tables still need 'cellspacing="0"' in the markup */
 
 table{
-  @include trailer;
+  @include trailer(1.5);
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
@@ -245,15 +261,11 @@ th, td, caption{
 }
 
 th{
-  @include trailing-border(1px, 0.5);
-}
-
-th{
-  background:$grey;
+  background:$bg;
 }
 
 tfoot{
-  @include adjust-font-size-to(14px);
+  font-size:0.857em;//12px
 }
 
 caption{
@@ -263,9 +275,10 @@ caption{
 /* Forms -------------------------------------------------------------- */
 
 fieldset{
-  @extend .box;
   @include trailer;
-  @include rhythm-borders(1px);
+  border:1px solid $border;
+  background: $bg;
+  padding:$base-rhythm-unit;
   ul{
     @include no-bullets;
     margin:0;
@@ -276,7 +289,7 @@ fieldset{
 }
 
 legend{
-  @include adjust-font-size-to(18px);
+  font-size:1.285em; //18px
   font-weight: bold;
 }
 
@@ -291,27 +304,28 @@ label, input[type=button], input[type=submit], button{
 // Label & asterix
 label{
   font-weight: bold;
+  display:block;
 }
 label abbr, abbr[title="required"]{
   font-size: 130%;
-  color:$orange;
+  color:$primary;
   border:none;
 }
 label abbr{
-  margin-left: 5px;
+  margin-left:$base-rhythm-unit/2;
 }
 
 // box-sizing helps us control the width of inputs
 // which are otherwise very hard to manage in the grid.
 .textinput{
   @include sans-family;
-  @include rhythm-borders(1px, 0.5, 12px);
   @include trailer(0.5);
   @include box-sizing(border-box);
-  font-size:12px;
+  font-size:1em;
+  padding:$base-rhythm-unit/2;
+  border:1px solid $border;
   margin-top: 0;
-  border-color: $border;
-  color:lighten($body,10%);
+  color:lighten($body-text,10%);
 }
 
 select{
@@ -320,7 +334,8 @@ select{
 
 textarea{
   @extend .textinput;
-  height: $base-line-height / 14px * 6.5em;
+  font-size:1em;
+  height: 5em;
   vertical-align: text-bottom;
 }
 
@@ -352,11 +367,10 @@ input{
 }
 
 button{
-  background:$orange;
+  background:$primary;
   color:#FFF;
   font-weight:bold;
   text-transform:uppercase;
-  // @TODO vertical rythim alert
   padding:$base-rhythm-unit/2;
   width: auto;
   overflow: visible;
@@ -364,28 +378,13 @@ button{
 
 // Form feedback
 .form-info{
-  color:lighten($body,20%);
+  color:lighten($body-text,20%);
   text-align:right;
   margin-right:0;
 }
 label.error{
   background:url(/images/layout/form-error.png) no-repeat 0 center;
   padding-left:20px;
-  color:$orange;
+  color:$primary;
   width:auto;
-}
-
-// Define box mixin
-// Transforms a div into a colored box
-// Use the mixin, or add a class .box to your markup
-.box{
-  @include pie-clearfix;
-  @include trailer;
-  @include rhythm-borders(1px, 0.5, 14px);
-  border-color:$border;
-  background: $grey;
-  padding:$base-rhythm-unit;
-}
-p.read-more{
-  float: right;
 }

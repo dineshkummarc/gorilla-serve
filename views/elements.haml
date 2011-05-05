@@ -321,17 +321,18 @@
       %td Table body td
 %hr/
 %form{:action => "#"}
+  %p.form-info Veldjes met een <abbr title="required">*</abbr> zijn verplicht
   %fieldset
     %legend Form legend
-    %ol
+    %ul
       %li
-        %label{:for => "f1"} Text input:
+        %label{:for => "f1"} Text input <abbr title="required">*</abbr>
         %input#f1{:type => "text", :value => "input text"}/
       %li
-        %label{:for => "pw"} Password input:
+        %label{:for => "pw"} Password input  <abbr title="required">*</abbr>
         %input#pw{:type => "password", :value => "password"}/
       %li
-        %label{:for => "f4"} Select field:
+        %label{:for => "f4"} Select field  <abbr title="required">*</abbr>
         %select#f4
           %option Option 01
           %option Option 02
@@ -361,7 +362,7 @@
           %input#f3{:type => "checkbox"}/
 
         
-    %ol
+    %ul
       %li
         %label{:for => "f5"} Textarea:
         %textarea#f5{:cols => "30", :rows => "5"} Textarea text

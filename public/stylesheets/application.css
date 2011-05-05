@@ -7,11 +7,16 @@
   1. CONFIGURATION
   2. COMMON
       2.1 General page layout
-      2.2 Header
+      2.2 Topbar
+      2.3 Header
+      2.4 Sidebar
+      2.5 Content
+      2.6 Footer
   3. PAGES
-      3.1 
-  4. IE STYLes
-  5. MOBILE STYLES
+      3.1 Home
+      3.2 …
+  4. MEDIA QUERIES
+  5. IE STYLES
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,12 +76,12 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  font-size: 75%;
+  font-size: 87.5%;
   line-height: 1.5em;
 }
 
 html > body {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* Typography -------------------------------------------------------------- */
@@ -93,16 +98,9 @@ html > body {
   font-family: "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, Courier, monospace, sans-serif;
 }
 
-.caps, .allcaps, blockquote cite, caption, .smallcaps, h4 {
-  letter-spacing: 0.1em;
-}
-
-.allcaps, blockquote cite, caption {
+.caps, h2, h4 {
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-}
-
-.smallcaps, h4 {
-  font-variant: small-caps;
 }
 
 /* Body -------------------------------------------------------------- */
@@ -147,32 +145,32 @@ a.button, button {
 
 /* Headings -------------------------------------------------------------- */
 h2, h3, h4, h5, h6 {
-  margin-bottom: 1.5em;
   font-weight: normal;
   color: #191919;
 }
 
 h1 {
-  font-size: 3em;
-  line-height: 1em;
-  margin-bottom: 0.5em;
+  font-size: 1.714em;
+  line-height: 1.1em;
+  margin-bottom: 1.3em;
   color: #f6921e;
 }
 
 h2 {
-  font-size: 2em;
-  line-height: 1.5em;
-  margin-bottom: 0.75em;
-  text-transform: uppercase;
+  font-size: 1.285em;
+  line-height: 1.3em;
+  margin-bottom: 0.7em;
 }
 
 h3 {
-  font-size: 2em;
-  line-height: 1.5em;
+  margin-bottom: 1.5em;
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 0.7em;
 }
 
 h4 {
-  text-transform: lowercase;
+  margin-bottom: 1.5em;
 }
 
 h5, h6 {
@@ -221,8 +219,7 @@ mark {
 }
 
 small {
-  font-size: 1em;
-  line-height: 1.5em;
+  font-size: 0.857em;
 }
 
 q {
@@ -248,6 +245,9 @@ pre {
 
 blockquote {
   margin-bottom: 1.5em;
+  background: #f3f3f3;
+  border: 1px solid #dadedf;
+  padding: 1.5em;
   font-style: italic;
 }
 blockquote .quote {
@@ -256,7 +256,12 @@ blockquote .quote {
   text-indent: 2.8em;
 }
 blockquote cite {
-  font-size: 11px;
+  font-size: 0.785em;
+}
+
+/* Hide HRs -------------------------------------------------------------- */
+hr {
+  display: none;
 }
 
 /* Figurs -------------------------------------------------------------- */
@@ -301,7 +306,7 @@ dd {
 /* Tables -------------------------------------------------------------- */
 /* tables still need 'cellspacing="0"' in the markup */
 table {
-  margin-bottom: 1.5em;
+  margin-bottom: 2.25em;
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
@@ -323,26 +328,19 @@ th, td, caption {
 }
 
 th {
-  border-bottom-style: solid;
-  border-bottom-width: 0.083em;
-  padding-bottom: 0.667em;
-}
-
-th {
   background: #f3f3f3;
 }
 
 tfoot {
-  font-size: 1.167em;
-  line-height: 1.286em;
+  font-size: 0.857em;
 }
 
 /* Forms -------------------------------------------------------------- */
 fieldset {
   margin-bottom: 1.5em;
-  border-style: solid;
-  border-width: 0.083em;
-  padding: 1.417em;
+  border: 1px solid #dadedf;
+  background: #f3f3f3;
+  padding: 1.5em;
 }
 fieldset ul {
   list-style: none;
@@ -366,8 +364,7 @@ fieldset li:after {
 }
 
 legend {
-  font-size: 1.5em;
-  line-height: 1em;
+  font-size: 1.285em;
   font-weight: bold;
 }
 
@@ -381,6 +378,7 @@ label, input[type=button], input[type=submit], button {
 
 label {
   font-weight: bold;
+  display: block;
 }
 
 label abbr, abbr[title="required"] {
@@ -390,27 +388,26 @@ label abbr, abbr[title="required"] {
 }
 
 label abbr {
-  margin-left: 5px;
+  margin-left: 0.75em;
 }
 
 .textinput, select, textarea, input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=datetime], input[type=datetime-local], input[type=month], input[type=week], input[type=time], input[type=number], input[type=range], input[type=search], input[type=color] {
   font-family: sans-serif;
-  border-style: solid;
-  border-width: 0.083em;
-  padding: 0.667em;
   margin-bottom: 0.75em;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 1em;
+  padding: 0.75em;
+  border: 1px solid #dadedf;
   margin-top: 0;
-  border-color: #dadedf;
   color: #595959;
 }
 
 textarea {
-  height: 8.357em;
+  font-size: 1em;
+  height: 5em;
   vertical-align: text-bottom;
 }
 
@@ -444,40 +441,6 @@ label.error {
   width: auto;
 }
 
-.box, blockquote, fieldset {
-  *zoom: 1;
-  margin-bottom: 1.5em;
-  border-style: solid;
-  border-width: 0.071em;
-  padding: 0.571em;
-  border-color: #dadedf;
-  background: #f3f3f3;
-  padding: 1.5em;
-}
-.box:after, blockquote:after, fieldset:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-
-p.read-more {
-  float: right;
-}
-
-body {
-  padding-bottom: 3em;
-}
-
-h1 + p {
-  font-size: 1.333em;
-  line-height: 2.25em;
-  margin-bottom: 2.25em;
-  line-height: 1.75em;
-}
-
 #nav-extra {
   position: absolute;
   right: 0;
@@ -508,9 +471,6 @@ h1 + p {
 }
 #nav-extra ul li.last {
   padding-right: 0;
-}
-#nav-extra a {
-  line-height: 3em;
 }
 
 header#topbar {
@@ -569,8 +529,8 @@ header#topbar {
   padding-right: 0;
 }
 #nav-main a {
-  font-size: 1.167em;
-  line-height: 3.857em;
+  font-size: 1em;
+  line-height: 4.5em;
   float: left;
   display: block;
   color: #FFF;
@@ -585,104 +545,14 @@ header#topbar {
 
 #breadcrumb p {
   border-bottom-style: solid;
-  border-bottom-width: 0.083em;
-  padding-bottom: 1.417em;
+  border-bottom-width: 0.071em;
+  padding-bottom: 1.429em;
   border-color: #dadedf;
   margin-right: 0;
 }
 
 .homepage {
-  font-size: 300000px;
-}
-
-@media only screen and (min-width : 481px) {
-  .container {
-    *zoom: 1;
-    margin: auto;
-    width: 82.637em;
-    max-width: 100%;
-    background-image: url('/images/grid.png?1291463507');
-    background-repeat: repeat;
-    background-position: 1.333em 0;
-  }
-  .container:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    clear: both;
-    overflow: hidden;
-    visibility: hidden;
-  }
-  .container * {
-    opacity: 0.8;
-  }
-
-  header#topbar h1 {
-    clear: both;
-    margin-left: 1.613%;
-    margin-right: 1.613%;
-  }
-
-  sidebar {
-    display: inline;
-    float: left;
-    width: 22.984%;
-    margin-right: 1.613%;
-    margin-left: 1.613%;
-  }
-
-  #content {
-    display: inline;
-    float: left;
-    width: 72.177%;
-    margin-right: 1.613%;
-    display: inline;
-    float: right;
-    margin-right: 1.613%;
-    #margin-left: -1.333em;
-  }
-}
-.ie6 .container, .ie7 .container, .ie8 .container {
-  *zoom: 1;
-  margin: auto;
-  width: 82.637em;
-  max-width: 100%;
-  background-image: url('/images/grid.png?1291463507');
-  background-repeat: repeat;
-  background-position: 1.333em 0;
-}
-.ie6 .container:after, .ie7 .container:after, .ie8 .container:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-.ie6 .container *, .ie7 .container *, .ie8 .container * {
-  opacity: 0.8;
-}
-.ie6 header#topbar h1, .ie7 header#topbar h1, .ie8 header#topbar h1 {
-  clear: both;
-  margin-left: 1.613%;
-  margin-right: 1.613%;
-}
-.ie6 sidebar, .ie7 sidebar, .ie8 sidebar {
-  display: inline;
-  float: left;
-  width: 22.984%;
-  margin-right: 1.613%;
-  margin-left: 1.613%;
-}
-.ie6 #content, .ie7 #content, .ie8 #content {
-  display: inline;
-  float: left;
-  width: 72.177%;
-  margin-right: 1.613%;
-  display: inline;
-  float: right;
-  margin-right: 1.613%;
-  #margin-left: -1.333em;
+  background: orange;
 }
 
 .ie6 fieldset, .ie7 fieldset, .ie8 fieldset {

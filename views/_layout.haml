@@ -39,25 +39,25 @@
               %a{:href=>"#"} Link 3
             %li
               %a{:href=>"#"} Link 4
-        #content-wrap
-          #content
-            = yield :pageheader
-            = yield
-          %sidebar
-            = yield :sidebar
+      #content-wrap
+        #content
+          = yield :pageheader
+          = yield
+        %sidebar
+          = yield :sidebar
 
-        %footer#bottom
-          #adres
-            %p
-              Footer content
+      %footer#bottom
+        #adres
+          %p
+            Footer content
 
-  // frontend stuf
-  %script{:src  => "/javascripts/frontend.js"}
-  
   // jQuery
   %script{:src  => "/javascripts/jquery-1.4.2.min.js"}
+  // frontend stuf
+  %script{:src  => "/javascripts/frontend.js"}
 
   :plain
     <!--[if lt IE 7 ]>
-      <script src="../js/dd_belatedpng.js"></script>
+      <script src="/javascripts/dd_belatedpng.js?v=1"></script>
+      <script>DD_belatedPNG.fix('img, #logo a');</script>
     <![endif]-->
