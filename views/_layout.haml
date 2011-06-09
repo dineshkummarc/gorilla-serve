@@ -21,14 +21,14 @@
             Gorilla template
         %nav#nav-main
           %ul
-            %li.first.current
-              %a{:href=>"/"} Link 1
-            %li
-              %a{:href=>"#"} Link 2
-            %li
-              %a{:href=>"#"} Link 3
-            %li
-              %a{:href=>"#"} Link 4
+            %li{:class=>(@body_class == "page1" ? 'current' : nil)}
+              %a{:href=>"/"} page1                              
+            %li{:class=>(@body_class == "page2" ? 'current' : nil)}
+              %a{:href=>"/page2"} page2
+            %li{:class=>(@body_class == "page3" ? 'current' : nil)}
+              %a{:href=>"/page3"} page3
+            %li{:class=>(@body_class == "page4" ? 'current' : nil)}                
+              %a{:href=>"/page4"} page4
         %nav#nav-extra
           %ul
             %li.first.current
