@@ -13,8 +13,17 @@ $col-width: 8.83em;
 $gutter-width: 1.333em;
 $side-gutter-width: $gutter-width;
 
-// Generate susy stuff
-@import "susy/susy";// Don't move this @import above the GRID and FONT-SIZE variables.
+// Import modules
+//------------------------------------------------------------------------------
+
+// Import compass default modules
+@import "compass";
+// Import CSS reset
+@import "compass/reset";
+// Import susy
+@import "susy/susy";
+// Establish baseline, generate handy mixins & variables
+@include establish-baseline;
 
 // Colors
 //------------------------------------------------------------------------------

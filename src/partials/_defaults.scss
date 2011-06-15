@@ -9,14 +9,6 @@
 
 @import "base";
 
-// Establish baseline, generate handy mixins & variables -------------------
-@include establish-baseline;
-// AVAILABLE MIXINS
-// >> @include leader: margin-top van $base-line-height (padding-leader idem maar met padding)
-// >> @include trailer: margin-bottom van $base-line-height (padding-trailer idem maar met padding)
-// AVAILABLE VARIABLES
-// >> $base-rhythm-unit: line-height in em (vast getal)
-
 /* Typography -------------------------------------------------------------- */
 /* The following classes are for use with @extend. */
 
