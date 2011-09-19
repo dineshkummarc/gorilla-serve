@@ -1,63 +1,98 @@
+-# Doctype HTML 5
 !!! 5
-%html{:lang=>"en-US"}
-  %head
-    %meta{:charset=>"utf-8"}/
-    %link{:href=>"/stylesheets/application.css", :rel=>"stylesheet"}/
-
-    // Typekit
-    // %script{:src  => "http://use.typekit.com/qtu6lnz.js"}
-    // :javascript
-    // try{Typekit.load();}catch(e){}
-    // All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects
+-# Conditional statements for our good friend Internet Explorer
+-# @see http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7]
+  %html.ie6{:lang=>"en-US"}
+/[if IE 7]
+  %html.ie7{:lang=>"en-US"}
+/[if IE 8]
+  %html.ie8{:lang=>"en-US"}
+/[if IE 9]
+  %html.ie9{:lang=>"en-US"}
+/[if (gt IE 9)|!(IE)]
+  %html{:lang=>"en-US"}
+  
+%head
+  %meta{:charset=>"utf-8"}/
+  
+  // Always force latest IE rendering engine (even in intranet) & Chrome Frame
+  %meta{:'http-equiv'=> "X-UA-Compatible", :content=> "IE=edge,chrome=1"}/
+  
+  %title
+    Gorilla boilerplate
     
-    // Modernizr
-    %script{:src  => "/javascripts/modernizr-1.5.min.js"}
+  // Mobile viewport optimized: j.mp/bplateviewport
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}/
+  
+  // Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references
+  %link{:rel => "shortcut icon", :href => "/favicon.ico"}
+  %link{:rel => "apple-touch-icon", :href => "/apple-touch-icon.png"}
+  
+  %link{:href=>"/stylesheets/application.css", :rel=>"stylesheet"}/
 
-  %body{:id=>@body_id, :class=>@layout}
-    .container
-      %header#topbar
-        %h1#logo
-          %a{:href=>"/"}
-            Gorilla template
-        %nav#nav-main
-          %ul
-            %li{:class=>(@body_class == "page1" ? 'current' : nil)}
-              %a{:href=>"/"} page1                              
-            %li{:class=>(@body_class == "page2" ? 'current' : nil)}
-              %a{:href=>"/page2"} page2
-            %li{:class=>(@body_class == "page3" ? 'current' : nil)}
-              %a{:href=>"/page3"} page3
-            %li{:class=>(@body_class == "page4" ? 'current' : nil)}                
-              %a{:href=>"/page4"} page4
-        %nav#nav-extra
-          %ul
-            %li.first.current
-              %a{:href=>"/"} Link 1
-            %li
-              %a{:href=>"#"} Link 2
-            %li
-              %a{:href=>"#"} Link 3
-            %li
-              %a{:href=>"#"} Link 4
-      #content-wrap
-        #content
-          = yield :pageheader
-          = yield
-        %sidebar
-          = yield :sidebar
+  // Typekit
+  // %script{:src  => "http://use.typekit.com/qtu6lnz.js"}
+  // :javascript
+  // try{Typekit.load();}catch(e){}
+  // All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects 
+  // Modernizr
+  %script{:src  => "/javascripts/modernizr-1.5.min.js"}
 
-      %footer#bottom
-        #adres
-          %p
-            Footer content
+%body{:id=>@body_id, :class=>@layout}
+  .container
+    %header#topbar{:role => "banner"}
+      %h1#logo
+        %a{:href=>"/"}
+          Gorilla template
+      %nav#nav-main{:role => "navigation"}
+        %ul
+          %li{:class=>(@body_class == "page1" ? 'current' : nil)}
+            %a{:href=>"/"} page1                              
+          %li{:class=>(@body_class == "page2" ? 'current' : nil)}
+            %a{:href=>"/page2"} page2
+          %li{:class=>(@body_class == "page3" ? 'current' : nil)}
+            %a{:href=>"/page3"} page3
+          %li{:class=>(@body_class == "page4" ? 'current' : nil)}                
+            %a{:href=>"/page4"} page4
+      %nav#nav-extra
+        %ul
+          %li.first.current
+            %a{:href=>"/"} Link 1
+          %li
+            %a{:href=>"#"} Link 2
+          %li
+            %a{:href=>"#"} Link 3
+          %li
+            %a{:href=>"#"} Link 4
+    #content-wrap
+      #content{:role => "main"}
+        = yield :pageheader
+        = yield
+      %sidebar{:role => "complementary"}
+        = yield :sidebar
 
-  // jQuery
-  %script{:src  => "/javascripts/jquery-1.4.2.min.js"}
-  // frontend stuf
+    %footer#bottom{:role => "contentinfo"}
+      #adres
+        %p
+          Footer content
+
+  // Grab Google CDN's jQuery. fall back to local if necessary
+  %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"}
+  // if we're unable to load jquery on google CDN load it local
+  %script
+    !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery-1.4.2.min.js"%3E%3C/script%3E'))
+    
+  // load the frontend.js, this is where the magic happens
   %script{:src  => "/javascripts/frontend.js"}
 
-  :plain
-    <!--[if lt IE 7 ]>
-      <script src="/javascripts/dd_belatedpng.js?v=1"></script>
-      <script>DD_belatedPNG.fix('img, #logo a');</script>
-    <![endif]-->
+  // conditional statement to load IE PNG fix
+  /[if lt IE 7]
+    %script{:src => "/javascripts/dd_belatedpng.js?v=1"}
+    %script
+      DD_belatedPNG.fix('img, #logo a');
+      
+-# closing HTML hardcoded?
+-# @TODO: check for solution with Benny
+:plain
+  </html>

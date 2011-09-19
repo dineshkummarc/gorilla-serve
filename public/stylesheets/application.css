@@ -70,8 +70,7 @@ a img {
   border: none;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
@@ -355,12 +354,9 @@ fieldset li {
   *zoom: 1;
 }
 fieldset li:after {
-  content: "\0020";
-  display: block;
-  height: 0;
+  content: "";
+  display: table;
   clear: both;
-  overflow: hidden;
-  visibility: hidden;
 }
 
 legend {
@@ -494,12 +490,9 @@ header#topbar {
   background: #f6921e;
 }
 #nav-main:after {
-  content: "\0020";
-  display: block;
-  height: 0;
+  content: "";
+  display: table;
   clear: both;
-  overflow: hidden;
-  visibility: hidden;
 }
 #nav-main ul {
   margin: 0;
@@ -553,6 +546,78 @@ header#topbar {
 
 .homepage {
   background: orange;
+}
+
+@media only screen and (min-width : 481px) {
+  .container {
+    *zoom: 1;
+    margin: auto;
+    width: 82.637em;
+    max-width: 100%;
+  }
+  .container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  header#topbar h1 {
+    clear: both;
+    margin-left: 1.613%;
+    margin-right: 1.613%;
+  }
+
+  sidebar {
+    display: inline;
+    float: left;
+    width: 22.984%;
+    margin-right: 1.613%;
+    margin-left: 1.613%;
+  }
+
+  #content {
+    display: inline;
+    float: left;
+    width: 72.177%;
+    margin-right: 1.613%;
+    display: inline;
+    float: right;
+    margin-right: 1.613%;
+    #margin-left: -1.333em;
+  }
+}
+.ie6 .container, .ie7 .container, .ie8 .container {
+  *zoom: 1;
+  margin: auto;
+  width: 82.637em;
+  max-width: 100%;
+}
+.ie6 .container:after, .ie7 .container:after, .ie8 .container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.ie6 header#topbar h1, .ie7 header#topbar h1, .ie8 header#topbar h1 {
+  clear: both;
+  margin-left: 1.613%;
+  margin-right: 1.613%;
+}
+.ie6 sidebar, .ie7 sidebar, .ie8 sidebar {
+  display: inline;
+  float: left;
+  width: 22.984%;
+  margin-right: 1.613%;
+  margin-left: 1.613%;
+}
+.ie6 #content, .ie7 #content, .ie8 #content {
+  display: inline;
+  float: left;
+  width: 72.177%;
+  margin-right: 1.613%;
+  display: inline;
+  float: right;
+  margin-right: 1.613%;
+  #margin-left: -1.333em;
 }
 
 .ie6 fieldset, .ie7 fieldset, .ie8 fieldset {
