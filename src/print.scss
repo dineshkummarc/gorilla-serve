@@ -1,0 +1,69 @@
+/*
+  Title: Gorilla project template - print styles
+  Author: Jelle Desramaults
+  For: Gorilla webdesign (http://gorilla-webdesign.be)
+  Date: September 2011
+  
+  1. BODY STYLES
+  2. TYPOGRAPHY
+  3. PROJECT-SPECIFIC STYLES
+*/
+
+// =============================================================================
+// 1. BODY TEXT
+// =============================================================================
+
+body {
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color:#000;
+  background: none;
+  font-size: 9pt;
+}
+
+// =============================================================================
+// 2. TYPOGRAPHY
+// =============================================================================
+
+h1,h2,h3,h4,h5,h6{
+  font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+  page-break-after:avoid;
+}
+h1{ line-height:1.3;}
+code { font:.9em "Courier New", Monaco, Courier, monospace; } 
+
+.float-left img { float:left; margin:1.5em 1.5em 1.5em 0; }
+
+blockquote {
+  margin:1.5em;
+  padding:1em;
+  font-style:italic;
+  font-size:.9em;
+}
+
+/* Links
+-------------------------------------------------------------- */
+
+a:link, a:visited {
+  background: transparent;
+  font-weight:700;
+  text-decoration: underline;
+}
+
+a:link:after, a:visited:after {
+  content: " (" attr(href) ")";
+  font-size: 90%;
+}
+
+/* If you're having trouble printing relative links, uncomment and customize this:
+   (note: This is valid CSS3, but it still won't go through the W3C CSS Validator) */
+
+/* a[href^="/"]:after {
+  content: " (http://www.yourdomain.com" attr(href) ") ";
+} */
+
+// =============================================================================
+// 2. PROJECT-SPECIFIC STYLES
+// =============================================================================
+
+// Insert project specific styles here (Hide header, hide logo, etc.…)
