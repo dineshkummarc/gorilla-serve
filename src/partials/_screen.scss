@@ -20,6 +20,5 @@
   //*{opacity:0.8;}
 }
 .main-content{
-  @include columns(4);
-  @include alpha;
+  @include columns(x);
 }
