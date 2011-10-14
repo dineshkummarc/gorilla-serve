@@ -109,8 +109,14 @@ header#topbar{
 
 // 4. MEDIA QUERIES
 // =============================================================================
-@import "partials/mobile";
-@media only screen and (min-width : 481px){
+@media screen and (max-width: 480px){
+  @import "partials/mobile";
+}
+@media screen and (min-width:481px) and (max-width:768px){
+  @import "partials/screen";
+  @import "partials/tablet";
+}
+@media screen and (min-width : 769px){
   @import "partials/screen";
 }
 .ie6, .ie7, .ie8{

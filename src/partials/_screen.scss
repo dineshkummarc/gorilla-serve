@@ -1,26 +1,25 @@
+//  
+//  1. COMMON
+//      1.1 General page layout
+//      1.2 Header
+//      1.3 …
+//  2. PAGES
+//      2.1 Home
+//      2.2 …
+
 // Desktop screens
 //------------------------------------------------------------------------------
 
-// Grid layout 
-//------------------------------------------------------------------------------
+//  1. COMMON
 
+//  1.1 General page layout
+//------------------------------------------------------------------------------
 .container{
   @include container;
-  //@include show-grid("/images/grid.png");
-  //*{
-    //opacity:0.8;
-  //}
+  //@include column-grid-background(5,176px,20px,20px);
+  //*{opacity:0.8;}
 }
-
-// Basic elements
-header#topbar h1{
-  @include full;
-}
-sidebar{
-  @include columns(2);
+.main-content{
+  @include columns(4);
   @include alpha;
-}
-#content{
-  @include columns(6);
-  @include omega;
 }
